@@ -1,0 +1,36 @@
+.star-rating {
+  display: flex;
+  font-size: 2rem; /* Larger stars */
+  gap: 0.5rem; /* Better spacing */
+  padding: 0.5rem 0;
+}
+
+.star {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  color: #3a3a3a; /* Empty star color */
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.star:hover,
+.star.filled,
+.star.half-filled {
+  color: #e63946; /* Filled star color */
+  transform: scale(1.1); /* Slight grow on hover */
+}
+
+.star.half-filled::after {
+  content: '★';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  color: #e63946; /* Half-filled color */
+  overflow: hidden;
+}
+
+.star.filled::after {
+  content: '';
+}

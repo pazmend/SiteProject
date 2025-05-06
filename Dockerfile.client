@@ -1,0 +1,12 @@
+FROM node:18
+
+WORKDIR /app
+
+COPY src/client/package*.json ./
+RUN npm cache clean --force && npm install --loglevel verbose
+
+COPY src/client .
+
+EXPOSE 3001
+
+CMD ["npx", "webpack", "serve", "--config", "webpack.config.js", "--port", "3001", "--host", "0.0.0.0", "--no-hot", "--no-client-overlay"]
